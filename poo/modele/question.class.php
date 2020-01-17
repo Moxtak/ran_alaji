@@ -6,26 +6,32 @@ class Questions extends Entity
     public $question;
     public $categorie;
 
-    function __construct($data){
+    function __construct($data)
+    {
         parent::hydrate($data);
     }
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
-    public function setId($n){
+    public function setId($n)
+    {
         return $this->id = $n;
     }
-    public function getQuestion(){
+    public function getQuestion()
+    {
         return $this->question;
     }
-    public function setQuestion($n){
+    public function setQuestion($n)
+    {
         $this->question = $n;
     }
-    public function getCategorie(){
+    public function getCategorie()
+    {
         return $this->categorie;
     }
-    public function setCategorie($n){
+    public function setCategorie($n)
+    {
         return $this->categorie = $n;
     }
-
 }
