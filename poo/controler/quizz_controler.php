@@ -1,20 +1,37 @@
 <?php
 require_once '../modele/question.class.php';
 require_once '../modele/question.classDAO.php';
+require_once '../modele/reponse.class.php';
+require_once '../modele/reponse.classDAO.php';
 
 $questionDAO = new QuestionDAO();
-// $a = $questionDAO->getAllQuestions();
-
-// var_dump($a);
 $arrQuestions =  $questionDAO->getAllQuestions();
+$reponseDAO = new ReponseDAO();
+$arrReponses =  $reponseDAO->getAllReponses();
 
+$arrQuestionCategorie = $questionDAO->getAllQuestions();
+$arrQuestionCategorie = $questionDAO->getQuestionByCategorie($_GET['categorie']);
+
+foreach($arrQuestionCategorie as $key => $value){
+    $arrQUestionCategorie[] = new Questions($value);
+}
+
+var_dump($arrQUestionCategorie);
+
+
+die();
 foreach ($arrQuestions  as $key => $value){
     $questions[] = new Questions($value);
 }
-
-
 foreach($questions as $key => $value){
     echo'<h1>' . $value->getQuestion() . '</h1>';
     echo'<h1> categorie : ' . $value->getCategorie() . '</h3>';
 }
-// var_dump($questions);
+
+
+foreach ($arrReponses  as $key => $value){
+    $reponses[] = new Reponses($value);
+}
+foreach($reponses as $key => $value){
+    echo'<h2;>' . $value->getReponse() . '</h2>';
+}
